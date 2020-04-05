@@ -48,8 +48,7 @@ function playSong(index){
     $('h4').text(songData.title[index]);
     updatePlayButton();
 
-    timer = setInterval(updateTime, 1000)
-    songData = {path:[], title:[]};
+    timer = setInterval(updateTime, 1000)    
 }
 
 function play(){
@@ -92,6 +91,8 @@ function clearPlayList(){
     currentIndex = 0;
     playing = false;
     $('h4').text('');
+    updatePlayButton();
+    songData = {path:[], title:[]};
 }
 
 function updateTime(){
@@ -100,7 +101,7 @@ function updateTime(){
     if(audioPlayer.currentTime >= audioPlayer.duration){
         playNext();
     }
-    console.log('tick');
+    // console.log('tick'); to test propuses
 }
 
 function updatePlayButton(){
